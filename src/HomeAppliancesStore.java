@@ -30,7 +30,23 @@ public class HomeAppliancesStore {
     static int NumberOfEmployees;
 
 
-
+    public static void deviceStatus(Device device){
+        if(device instanceof AirCondition) {
+            AirCondition ac = (AirCondition) device;
+            System.out.println("Device is AC. Status "+ac.status());
+        }else if(device instanceof Fridge){
+            Fridge fridge = (Fridge) device;
+            System.out.println("Device is fridge. Status "+fridge.status());
+        }else if(device instanceof Oven){
+            Oven oven = (Oven) device;
+            System.out.println("Device is Oven. Status "+oven.status());
+        }else if(device instanceof WashingMachine){
+            WashingMachine washingMachine = (WashingMachine) device;
+            System.out.println("Device is WashingMachine. Status "+washingMachine.status());
+        }else{
+            System.out.println("unknown device type");
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -65,8 +81,8 @@ public class HomeAppliancesStore {
         System.out.println("Fridges:"+Fridge.getDeviceCount());
         System.out.println("AirCondition:"+AirCondition.getDeviceCount());
         System.out.println("Oven:"+Oven.getDeviceCount());
-        System.out.println("Oven:"+Oven.getDeviceCount());
+        System.out.println("WashingMAchine:"+WashingMachine.getDeviceCount());
 
-
+        deviceStatus(ac1);
     }
 }

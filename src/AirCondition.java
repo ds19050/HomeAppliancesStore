@@ -1,13 +1,6 @@
 import java.lang.reflect.Field;
 
-public class AirCondition {
-    private double length;
-    private double height;
-    private double depth;
-    private String manufacterName;
-    private String deviceName;
-    private String deviceType;
-    private double energyConsumption;
+public class AirCondition extends Device {
     static int deviceCount=0;
 
     private double acMinTemp;
@@ -52,61 +45,6 @@ public class AirCondition {
         return result.toString();
     }
 
-    public double getLength() {
-        return length;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getDepth() {
-        return depth;
-    }
-
-    public void setDepth(double depth) {
-        this.depth = depth;
-    }
-
-    public String getManufacterName() {
-        return manufacterName;
-    }
-
-    public void setManufacterName(String manufacterName) {
-        this.manufacterName = manufacterName;
-    }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public String getDeviceType() {
-        return deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
-    }
-
-    public double getEnergyConsumption() {
-        return energyConsumption;
-    }
-
-    public void setEnergyConsumption(double energyConsumption) {
-        this.energyConsumption = energyConsumption;
-    }
 
     public static int getDeviceCount() {
         return deviceCount;
@@ -158,12 +96,12 @@ public class AirCondition {
 
     public AirCondition(double length) {
         deviceCount++;
-        this.length = length;
+        setLength(length);
     }
 
     public AirCondition(String manufacterName, String acRemoteType) {
         deviceCount++;
-        this.manufacterName = manufacterName;
-        this.acRemoteType = acRemoteType;
+        setManufacterName(manufacterName);
+        setAcRemoteType(acRemoteType);
     }
 }

@@ -1,13 +1,6 @@
 import java.lang.reflect.Field;
 
-public class WashingMachine {
-    private double length;
-    private double height;
-    private double depth;
-    private String manufacterName;
-    private String deviceName;
-    private String deviceType;
-    private double energyConsumption;
+public class WashingMachine extends Device{
     static int deviceCount=0;
 
     private int washingRPM;
@@ -24,61 +17,6 @@ public class WashingMachine {
 
     }
 
-    public double getLength() {
-        return length;
-    }
-
-    public void setLength(double length) {
-        this.length = length;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getDepth() {
-        return depth;
-    }
-
-    public void setDepth(double depth) {
-        this.depth = depth;
-    }
-
-    public String getManufacterName() {
-        return manufacterName;
-    }
-
-    public void setManufacterName(String manufacterName) {
-        this.manufacterName = manufacterName;
-    }
-
-    public String getDeviceName() {
-        return deviceName;
-    }
-
-    public void setDeviceName(String deviceName) {
-        this.deviceName = deviceName;
-    }
-
-    public String getDeviceType() {
-        return deviceType;
-    }
-
-    public void setDeviceType(String deviceType) {
-        this.deviceType = deviceType;
-    }
-
-    public double getEnergyConsumption() {
-        return energyConsumption;
-    }
-
-    public void setEnergyConsumption(double energyConsumption) {
-        this.energyConsumption = energyConsumption;
-    }
 
     public static int getDeviceCount() {
         return deviceCount;
@@ -160,10 +98,11 @@ public class WashingMachine {
     }
 
     public WashingMachine(String manufacterName, String deviceName, String deviceType, int washingRPM) {
+        super();
         deviceCount++;
-        this.manufacterName = manufacterName;
-        this.deviceName = deviceName;
-        this.deviceType = deviceType;
+        setManufacterName(manufacterName);
+        setDeviceName(deviceName);
+        setDeviceType(deviceType);
         this.washingRPM = washingRPM;
     }
 
