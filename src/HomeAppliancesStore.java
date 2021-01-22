@@ -1,3 +1,8 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Hashtable;
+
 public class HomeAppliancesStore {
 
 
@@ -29,6 +34,31 @@ public class HomeAppliancesStore {
     static String CompanyAddress;
     static int NumberOfEmployees;
 
+    public static int readFile(String filePath, String deviceType){
+        Hashtable<String, String> my_dict = new Hashtable<String, String>();
+        BufferedReader reader;
+
+        my_dict.put("01", "Apple");
+
+        try {
+            reader = new BufferedReader(new FileReader(
+                    "/Users/pankaj/Downloads/myfile.txt"));
+            String line = reader.readLine();
+            String[] arrOfStr = line.split("@", 2);
+            my_dict.put(arrOfStr[0], arrOfStr[1]);
+            while (line != null) {
+                System.out.println(line);
+                arrOfStr = line.split("@", 2);
+                my_dict.put(arrOfStr[0], arrOfStr[1]);
+                line = reader.readLine();
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return 0;
+        }
+        return Integer.parseInt(my_dict.get(deviceType));
+    }
 
     public static void deviceStatus(Device device){
         if(device instanceof AirCondition) {
@@ -84,5 +114,6 @@ public class HomeAppliancesStore {
         System.out.println("WashingMAchine:"+WashingMachine.getDeviceCount());
 
         deviceStatus(ac1);
+        //readFile("C:/temp/devices.txt","Fridge");
     }
 }
